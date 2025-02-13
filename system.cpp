@@ -20,7 +20,7 @@ System::System(int N, double displacement,double radius, double boxSize, int see
 
 bool System::overlap(int i){
     for (int j = 0; j < disks.size(); ++j) {
-        if (i!=j && disks[i].distance(disks[j]) < (disks[i].radius + disks[j].radius) ) {
+        if (i!=j && disks[i].distance(disks[j]) < (disks[i].get_radius() + disks[j].get_radius()) ) {
             return true;
         }
     }
@@ -28,13 +28,11 @@ bool System::overlap(int i){
 }
 
 void System::step() {
-    std::cout<<"out loop\n";
     for (size_t i = 0; i<disks.size(); ++i) 
     {
-        std::cout<<"in loop\n";
         int selected_disk = std::rand() % disks.size();
-        double oldx = disks[selected_disk].x;
-        double oldy = disks[selected_disk].y;
+        double oldx = disks[selected_disk].get_X();
+        double oldy = disks[selected_disk].get_Y();
         double dx = uniform(-displacement, displacement);
         double dy = uniform(-displacement, displacement);
         this->disks[selected_disk].move(dx, dy);
@@ -42,18 +40,18 @@ void System::step() {
         enforceBoundaries(disks[selected_disk]);
 
         if (overlap(selected_disk)){
-            disks[selected_disk].x = oldx;
-            disks[selected_disk].y = oldy;
+            disks[selected_disk].set_X(oldx);
+            disks[selected_disk].set_Y(oldy);
         }
        
     }
 }
 
 void System::enforceBoundaries(Disk & disk) {
-        if (disk.x < 0) disk.x = 0;
-        if (disk.x > boxSize) disk.x = boxSize;
-        if (disk.y < 0) disk.y = 0;
-        if (disk.y > boxSize) disk.y = boxSize;
+        if (disk.get_X() < 0) disk.set_X(0);
+        if (disk.get_X() > boxSize) disk.set_X(boxSize);
+        if (disk.get_Y() < 0) disk.set_Y(0);
+        if (disk.get_Y() > boxSize) disk.set_Y(boxSize);
 }
 
 double System::uniform(double min, double max){
@@ -67,7 +65,7 @@ void System::save(const std::string &filename){
     outFile<<disks.size()<<std::endl;
     outFile<<"Comment"<<std::endl;
     for (Disk& disk : disks) {
-      outFile<<"A "<<disk.x<<" "<<disk.y<<" "<<disk.radius<<std::endl;
+      outFile<<"A "<<disk.get_X()<<" "<<disk.get_Y()<<" "<<disk.get_radius()<<std::endl;
 
     }
     outFile.close();

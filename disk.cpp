@@ -38,5 +38,5 @@ void Disk::set_Y(double y){
 }
 
 void Disk::set_radius(double radius){
-    this-radius = radius;
+    this->radius = radius;
 }
