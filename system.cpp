@@ -28,8 +28,10 @@ bool System::overlap(int i){
 }
 
 void System::step() {
-    for (int i; i<disks.size(); ++i) 
+    std::cout<<"out loop\n";
+    for (size_t i = 0; i<disks.size(); ++i) 
     {
+        std::cout<<"in loop\n";
         int selected_disk = std::rand() % disks.size();
         double oldx = disks[selected_disk].x;
         double oldy = disks[selected_disk].y;
@@ -46,12 +48,13 @@ void System::step() {
        
     }
 }
+
 void System::enforceBoundaries(Disk & disk) {
         if (disk.x < 0) disk.x = 0;
         if (disk.x > boxSize) disk.x = boxSize;
         if (disk.y < 0) disk.y = 0;
         if (disk.y > boxSize) disk.y = boxSize;
-    }
+}
 
 double System::uniform(double min, double max){
     return ((max-min)*this->dist(this->gen) + min);
