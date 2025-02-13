@@ -3,14 +3,24 @@
 #define DISK_H
 
 class Disk{
-public:
-    double x, y, radius;
+    private:
+        double x;
+        double y; 
+        double radius;
 
-    Disk(double x, double y, double r);
+    public:
+        Disk(double x, double y, double r);
 
-    void move(double dx, double dy);
-    double distance(Disk& d);
+        void move(double dx, double dy);
+        double distance(Disk& d);
 
+        double get_X();
+        double get_Y();
+        double get_radius();
+
+        void set_X(double x);
+        void set_Y(double y);
+        void set_radius(double radius);
 };
 
 #endif
