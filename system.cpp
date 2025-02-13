@@ -54,7 +54,7 @@ void System::enforceBoundaries(Disk & disk) {
     }
 
 double System::uniform(double min, double max){
-    return ((max-min)*this->dist + min)
+    return ((max-min)*this->dist(this->gen) + min);
 
 }
 
