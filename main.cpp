@@ -8,12 +8,12 @@
  *
  * This function initializes the program and manages execution.
  */
-int main() {
+int main(int argc, char* argv[]) {
     // number of disks
-    int N = 20;
-    double maxDisplacement  = 0.6;
-    double dt = 0.5;
-    double L = 20.0;
+    int N = std::stof(argv[1]);
+    double maxDisplacement  = std::stof(argv[2]);
+    double dt = std::stof(argv[3]);
+    double L = std::stof(argv[4]);
 
     // initialise the system
     System system(N, maxDisplacement,dt,L,1234);
