@@ -13,10 +13,11 @@ int main(int argc, char* argv[]) {
     int N = std::stof(argv[1]);
     double maxDisplacement  = std::stof(argv[2]);
     double dt = std::stof(argv[3]);
-    double L = std::stof(argv[4]);
+    double X = std::stof(argv[4]);
+    double Y = std::stof(argv[5]);
 
     // initialise the system
-    System system(N, maxDisplacement,dt,L,1234);
+    System system(N, maxDisplacement, dt, X, Y, 1234);
 
     // total number of iterations
     int iterations = N*500;

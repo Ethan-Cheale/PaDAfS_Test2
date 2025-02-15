@@ -2,14 +2,15 @@
 #include "system.h"
 #include "disk.h"
 
-System::System(int N, double displacement,double radius, double boxSize, int seed) {
+System::System(int N, double displacement, double radius, double boxSize_X, double boxSize_Y, int seed) {
 
-        this->boxSize= boxSize;
+        this->boxSize_X= boxSize_X;
+        this->boxSize_Y= boxSize_Y;
         this->dist = std::uniform_real_distribution<double>(0, 1);
         this->displacement=displacement;
         gen = std::mt19937(seed);
         
-        int nSide = static_cast<int>(boxSize/ (2*radius));
+        int nSide = static_cast<int>(boxSize_Y/ (2*radius));
 
         for (int i = 0; i < nSide && disks.size() < N; ++i) {
             for (int j = 0; j < nSide && disks.size() < N; ++j) {
@@ -49,9 +50,9 @@ void System::step() {
 
 void System::enforceBoundaries(Disk & disk) {
         if (disk.get_X() < 0) disk.set_X(0);
-        if (disk.get_X() > boxSize) disk.set_X(boxSize);
+        if (disk.get_X() > boxSize_X) disk.set_X(boxSize_X);
         if (disk.get_Y() < 0) disk.set_Y(0);
-        if (disk.get_Y() > boxSize) disk.set_Y(boxSize);
+        if (disk.get_Y() > boxSize_Y) disk.set_Y(boxSize_Y);
 }
 
 double System::uniform(double min, double max){

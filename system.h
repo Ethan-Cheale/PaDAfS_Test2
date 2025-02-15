@@ -11,12 +11,13 @@
 class System {
     public:
     std::vector<Disk> disks;
-    double boxSize;
+    double boxSize_X;
+    double boxSize_Y;
     double displacement;
     std::mt19937 gen;
     std::uniform_real_distribution<double> dist;
-    
-    System(int N, double displacement,double radius, double box_size, int seed);
+
+    System(int N, double displacement,double radius, double X_size, double Y_size, int seed);
 
     void step() ;
 

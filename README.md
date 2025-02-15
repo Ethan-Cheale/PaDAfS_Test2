@@ -10,7 +10,7 @@ This repo contains a programme for generating and Visualising a random movement 
 #### Makefile
 A Makefile is provided for producing an executable only.
 #### Python Binding
-view.py has been adapted so that it runs the model from scratch. Outputs model data into confs directory alongside visualisation of the data. 
+view.py has been adapted so that it runs the model's executable. Outputs model data into confs directory alongside visualisation of the data. 
 ### Major Changes
 
 #### system
@@ -19,6 +19,7 @@ view.py has been adapted so that it runs the model from scratch. Outputs model d
 - Re-implemented uniform function
 - Fixed issue within step function where i in for loop was not being initialised to 0,
 ##### Developments
+- Changed it so that the box could be rectangular by setting X and Y limits seperately.
 #### disk
 ##### Fixes
 - Recreated header file
