@@ -9,7 +9,7 @@ For a full overview of the project you can consider the full log. Navigate the l
 - ``git checkout master``, will return you to the current head of the master branch
 ##### Tags
 For quicker navigation of the repository you can use tags. I have used semantic versioning for the tags of this project. Navigate tags using the following commands in the terminal:
-- ``git tags``, shows a lists of all tags.
+- ``git tag``, shows a lists of all tags.
 - ``git checkout <tag-name>``, allows you to work on older versions.
 ### Compilation and Visualising the Output
 
