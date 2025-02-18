@@ -3,27 +3,10 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import glob
 from matplotlib.patches import Circle
-import subprocess
-import os
+import disk_sys_wrapper
 
-# Class for running the program
-class Wrapper:
-    def __init__(self, count=20, maxDisplacement = 0.6, dt = 0.5, X = 20, Y = 20):
-        # code to initalise the object
-        self.count =  count
-        self.maxDisplacement = maxDisplacement
-        self.dt = dt
-        self.X = X 
-        self.Y = Y
-    
-    def run(self):
-        cwd = os.path.abspath(os.getcwd())
-        command = ["sudo",os.path.abspath(os.getcwd())+"/main", str(self.count),str(self.maxDisplacement),str(self.dt),str(self.X),str(self.Y)]
-        print(command)
-        result = subprocess.run(command, capture_output=True, text=True)
-        return result
-
-model = Wrapper(count = 40, maxDisplacement=0.6,dt=0.5, X=30, Y=40)
+# Change variables in below class definition to alter the model produced
+model = disk_sys_wrapper.Wrapper(count = 40, maxDisplacement=0.6,dt=0.5, X=30, Y=40)
 model.run()
 
 # Get all configurations from the confs folder

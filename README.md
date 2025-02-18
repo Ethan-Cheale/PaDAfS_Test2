@@ -1,15 +1,18 @@
 # Programming and Data Analysis for Scientists: Test 2
-
 ### Overview
 This repo contains a programme for generating and Visualising a random movement of disks.
 ### Navigating the repository
-[TO BE FILLED WHEN TAGGING IS COMPLETED] (Semantic versioning)
-
+##### Log
+``git log`` will provide the full log of this project
+##### Tags
+For navigating the log through tags you can use the following commands in the terminal
+- ``git tags``, shows a lists of all versions. Tags follow semantic versioning
+- ``git checkout <tag-name>``, allows you to work on older versions. In order to leave a split version use ``git checkout master``.
 ### Compilation and Visualising the Output
 
 #### Makefile
 A Makefile is provided for producing an executable only.
-#### Python Binding
+#### Python Wrapper
 view.py has been adapted so that it runs the model's executable. Outputs model data into confs directory alongside visualisation of the data. 
 ### Major Changes
 
